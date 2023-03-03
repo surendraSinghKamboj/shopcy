@@ -83,7 +83,7 @@ export default function Home() {
               <p className="mx-8 my-2">
                 {About === "mission"
                   ? "Our mission is to provide pet owners with everything they need to ensure their furry friends live happy, healthy lives. We believe that pets are more than just animals - they are members of our families and deserve the best care possible."
-                  : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil excepturi quae eveniet asperiores suscipit! Placeat perspiciatis rerum architecto quasi rem eos atque sapiente dolorum repudiandae quaerat at dolorem harum ducimus unde sint"}
+                  : "Our vision is to become the go-to destination for pet owners who want to provide the best care for their furry friends. We believe that pets are more than just animals; they are members of our families, and they deserve to be treated as such."}
               </p>
             </div>
           </div>
