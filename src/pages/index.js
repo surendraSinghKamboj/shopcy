@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from "next/head";
+import Image from "next/image";
 import hero from "../../assets/hero.jpg";
+import about from "../../assets/about.jpg"
 
 export default function Home() {
   return (
@@ -12,19 +14,34 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div
+        
+        
+        <div id="about"
           className="h-[90vh] flex-col justify-center bg-cover"
           style={{ backgroundImage: `url(${hero.src})` }}
         >
           <h2 className="uppercase text-9xl mx-2]">pet Shop</h2>
           <p className="text-6xl text-white mx-9">Make Your Pets Happy</p>
-          <p className="text-xl text-white mx-10 landscape:w-[55%] portrait:w-[80%] portrait:m-auto">
+          <p className="text-xl text-white mx-10 my-3 landscape:w-[55%] portrait:w-[80%] portrait:m-auto">
             Welcome to our pet shop! We understand that pets are more than just
             animals, they're family. That's why we offer a wide range of
             high-quality products for all your pet's needs. From food and treats
             to toys and grooming supplies, we have everything you need to keep
             your furry friend happy and healthy.
           </p>
+        </div>
+
+
+        <div className="my-10 w-[80%] m-auto portrait:flex portrait:flex-col flex">
+          <div className="w-[50%]">
+            <Image src={about} alt={"about"} className="w-[100%] " />
+          </div>
+          <div className="w-[50%]">
+            <div className="flex mx-4 justify-center flex-col border-l-4 py-3 border-l-lime-500">
+              <h3 className="text-lime-500 text-xl mx-4">About us</h3>
+              <p className="uppercase mx-4 text-2xl">we keeps your pets happy all time</p>
+            </div>
+          </div>
         </div>
       </main>
     </>

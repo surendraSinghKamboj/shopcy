@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -10,21 +11,35 @@ const Navbar = () => {
       </div>
       <nav class="w-full md:w-auto">
         <ul class="flex justify-center md:justify-end mx-2">
-          <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
-            Homepage
-          </li>
-          <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
-            About
-          </li>
-          <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
-            Services
-          </li>
-          <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
-            Product
-          </li>
-          <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
-            Contact us
-          </li>
+          <Link href={"/"}>
+            <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
+              Homepage
+            </li>
+          </Link>
+
+          <Link href={"#about"}>
+            <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
+              About
+            </li>
+          </Link>
+
+          <Link href={"#services"}>
+            <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
+              Services
+            </li>
+          </Link>
+
+          <Link href={"/products"}>
+            <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
+              Product
+            </li>
+          </Link>
+
+          <Link href={"/contact"}>
+            <li class="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
+              Contact us
+            </li>
+          </Link>
         </ul>
       </nav>
     </header>
