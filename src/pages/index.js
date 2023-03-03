@@ -2,9 +2,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import hero from "../../assets/hero.jpg";
-import about from "../../assets/about.jpg"
+import about from "../../assets/about.jpg";
+import { useState } from "react";
 
 export default function Home() {
+  const [About, setAbout] = useState("mission");
+
+  const deactive = "w-[100%] h-[40px] bg-white text-lime-500";
+
+  const active = "w-[100%] h-[40px]  bg-lime-500 text-whit";
+
   return (
     <>
       <Head>
@@ -14,9 +21,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        
-        
-        <div id="about"
+        {/* div 1 */}
+        <div
+          id="about"
           className="h-[90vh] flex-col justify-center bg-cover"
           style={{ backgroundImage: `url(${hero.src})` }}
         >
@@ -31,15 +38,53 @@ export default function Home() {
           </p>
         </div>
 
+        {/* div 2 */}
 
-        <div className="my-10 w-[80%] m-auto portrait:flex portrait:flex-col flex">
-          <div className="w-[50%]">
+        <div className="my-10 w-[80%] m-auto portrait:w-[100%] portrait:flex portrait:flex-col flex">
+          <div className="w-[50%] portrait:w-[100%]">
             <Image src={about} alt={"about"} className="w-[100%] " />
           </div>
-          <div className="w-[50%]">
+          <div className="w-[50%] portrait:w-[100%] portrait:my-4">
             <div className="flex mx-4 justify-center flex-col border-l-4 py-3 border-l-lime-500">
               <h3 className="text-lime-500 text-xl mx-4">About us</h3>
-              <p className="uppercase mx-4 text-2xl">we keeps your pets happy all time</p>
+              <p className="uppercase mx-4 text-2xl">
+                we keeps your pets happy all time
+              </p>
+            </div>
+            <div>
+              <p className="mx-8">
+                Our knowledgeable staff are here to help you find the right
+                products for your pet, whether you have a dog, cat, bird, fish,
+                or any other small animal. We also offer pet adoption services,
+                so you can give a loving home to a pet in need.
+              </p>
+            </div>
+            <div>
+              <div className="flex mt-8 mx-4 border-2">
+                <div className="w-[50%]">
+                  <button
+                    className={About === "mission" ? active : deactive}
+                    onClick={() => setAbout("mission")}
+                  >
+                    Our Mission
+                  </button>
+                </div>
+                <div className="w-[50%]">
+                  <button
+                    className={About === "vision" ? active : deactive}
+                    onClick={() => setAbout("vision")}
+                  >
+                    Our Vision
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className="mx-8 my-2">
+                {About === "mission"
+                  ? "Our mission is to provide pet owners with everything they need to ensure their furry friends live happy, healthy lives. We believe that pets are more than just animals - they are members of our families and deserve the best care possible."
+                  : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil excepturi quae eveniet asperiores suscipit! Placeat perspiciatis rerum architecto quasi rem eos atque sapiente dolorum repudiandae quaerat at dolorem harum ducimus unde sint"}
+              </p>
             </div>
           </div>
         </div>
