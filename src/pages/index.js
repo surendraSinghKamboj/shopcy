@@ -1,4 +1,6 @@
-import Head from 'next/head'
+/* eslint-disable react/no-unescaped-entities */
+import Head from "next/head";
+import hero from "../../assets/hero.jpg";
 
 export default function Home() {
   return (
@@ -10,8 +12,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        
+        <div
+          className="h-[90vh] flex-col justify-center bg-cover"
+          style={{ backgroundImage: `url(${hero.src})` }}
+        >
+          <h2 className="uppercase text-9xl mx-2]">pet Shop</h2>
+          <p className="text-6xl text-white mx-9">Make Your Pets Happy</p>
+          <p className="text-xl text-white mx-10 landscape:w-[55%] portrait:w-[80%] portrait:m-auto">
+            Welcome to our pet shop! We understand that pets are more than just
+            animals, they're family. That's why we offer a wide range of
+            high-quality products for all your pet's needs. From food and treats
+            to toys and grooming supplies, we have everything you need to keep
+            your furry friend happy and healthy.
+          </p>
+        </div>
       </main>
     </>
-  )
+  );
 }

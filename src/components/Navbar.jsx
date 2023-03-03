@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <header class="flex flex-col md:flex-row md:justify-between items-center bg-lime-500 py-2">
+    <header class="flex flex-col md:flex-row md:justify-between items-center sticky top-0 bg-lime-500 py-2">
       <div class="w-full md:w-auto">
         <h1 class="m-2 mx-2 text-lg text-white cursor-pointer hover:text-teal-300 md:w-auto md:mx-0">
           Shopcy
