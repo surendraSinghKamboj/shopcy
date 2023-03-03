@@ -1,9 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import {
+  GiDogHouse,
+  GiDogBowl,
+  GiSittingDog,
+  GiSniffingDog,
+} from "react-icons/gi";
 import hero from "../../assets/hero.jpg";
 import about from "../../assets/about.jpg";
-import { useState } from "react";
 
 export default function Home() {
   const [About, setAbout] = useState("mission");
@@ -85,6 +91,76 @@ export default function Home() {
                   ? "Our mission is to provide pet owners with everything they need to ensure their furry friends live happy, healthy lives. We believe that pets are more than just animals - they are members of our families and deserve the best care possible."
                   : "Our vision is to become the go-to destination for pet owners who want to provide the best care for their furry friends. We believe that pets are more than just animals; they are members of our families, and they deserve to be treated as such."}
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* div 3 */}
+
+        <div
+          id="services"
+          className="my-10 w-[80%] m-auto portrait:w-[100%] flex-col portrait:flex portrait:flex-col flex"
+        >
+          {/* Services Heading */}
+          <div className="w-[50%] portrait:w=[90%] portrait:m-auto py-8 border-l-4 border-lime-500 portrait:border-l-0 portrait:border-b-4 portrait:py-4 portrait:my-8">
+            <h3 className="uppercase text-lime-500 mx-4">Services</h3>
+            <h4 className="uppercase text-xl mx-4 my-2">
+              OUR EXCELLENT PET CARE SERVICES
+            </h4>
+          </div>
+
+          {/* services */}
+          <div className="flex flex-wrap justify-center items-center portrait:flex-col">
+            <div className="w-[50%] portrait:w-[90%] m-auto flex">
+              <div>
+                <GiDogHouse className="text-lime-500 text-8xl" />
+              </div>
+              <div className="flex flex-col mx-4">
+                <h3 className="text-xl uppercase my-2">Pet Boarding</h3>
+                <p>
+                  Kasd dolor no lorem sit tempor at justo rebum rebum stet justo
+                  elitr dolor amet sit
+                </p>
+              </div>
+            </div>
+
+            <div className="w-[50%] portrait:w-[90%] m-auto flex">
+              <div>
+                <GiDogBowl className="text-lime-500 text-8xl" />
+              </div>
+              <div className="flex flex-col mx-4">
+                <h3 className="text-xl uppercase my-2">Pet Feeding</h3>
+                <p>
+                  Kasd dolor no lorem sit tempor at justo rebum rebum stet justo
+                  elitr dolor amet sit
+                </p>
+              </div>
+            </div>
+
+            <div className="w-[50%] portrait:w-[90%] m-auto flex my-8">
+              <div>
+                <GiSittingDog className="text-lime-500 text-8xl" />
+              </div>
+              <div className="flex flex-col mx-4">
+                <h3 className="text-xl uppercase my-2">Pet Exercise</h3>
+                <p>
+                  Kasd dolor no lorem sit tempor at justo rebum rebum stet justo
+                  elitr dolor amet sit
+                </p>
+              </div>
+            </div>
+
+            <div className="w-[50%] portrait:w-[90%] m-auto flex">
+              <div>
+                <GiSniffingDog className="text-lime-500 text-8xl" />
+              </div>
+              <div className="flex flex-col mx-4">
+                <h3 className="text-xl uppercase my-2">Pet Training</h3>
+                <p>
+                  Kasd dolor no lorem sit tempor at justo rebum rebum stet justo
+                  elitr dolor amet sit
+                </p>
+              </div>
             </div>
           </div>
         </div>
