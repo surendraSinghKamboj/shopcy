@@ -1,7 +1,24 @@
 {
-    "crons": [{
-      "path": "/api/",
-      "schedule": "0 10 * * *"
-    }]
+
+  "functions": {
+
+    "pages/api/products/getProducts.js": {
+
+      "memory": 1024,
+
+      "maxDuration": 10
+
+    },
+
+    "pages/api/products/addProducts": {
+
+      "memory": 1024,
+
+      "maxDuration": 10
+
+    }
+
   }
-  
+
+}
+
