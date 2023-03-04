@@ -10,6 +10,7 @@ const connectDb = (handler) => async (req, res) => {
         console.error("URI Not found")
     }
     await mongoose.connect(process.env.MONGODB_URI);
+    
     console.log("Database connected Successfully....")
 }
 
