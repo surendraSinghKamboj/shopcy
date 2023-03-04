@@ -4,7 +4,7 @@
 
     "pages/api/products/getProducts.js": {
 
-      "memory": 3008,
+      "memory": 1024,
 
       "maxDuration": 10
 
@@ -12,7 +12,7 @@
 
     "pages/api/products/addProducts": {
 
-      "memory": 3004,
+      "memory": 1024,
 
       "maxDuration": 10
 
