@@ -6,7 +6,7 @@
 
       "memory": 3008,
 
-      "maxDuration": 30
+      "maxDuration": 10
 
     },
 
@@ -14,7 +14,7 @@
 
       "memory": 3004,
 
-      "maxDuration": 45
+      "maxDuration": 10
 
     }
 
