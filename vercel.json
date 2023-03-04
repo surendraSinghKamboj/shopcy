@@ -12,7 +12,7 @@
 
     "pages/api/products/addProducts": {
 
-      "memory": 3024,
+      "memory": 3004,
 
       "maxDuration": 45
 
