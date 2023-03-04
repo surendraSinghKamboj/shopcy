@@ -35,9 +35,9 @@ const Navbar = () => {
             </li>
           </Link>
 
-          <Link href={"/contact"}>
+          <Link href={"/Login"}>
             <li className="m-2 mx-3 hover:bg-white hover:text-lime-500 p-1 cursor-pointer">
-              Contact us
+              Login
             </li>
           </Link>
         </ul>
