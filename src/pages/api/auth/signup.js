@@ -20,6 +20,7 @@ const handler = async (req, res) => {
 
             res.status(200).json({
                 message: `Congratulations ${req.body.name}! Your account has been created successfully.`,
+                status: "success"
             });
         } catch (error) {
             console.error(error);

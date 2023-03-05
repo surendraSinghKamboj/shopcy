@@ -1,8 +1,14 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
+import { Howl } from "howler";
 
 const Signup = () => {
+  const success = new Howl({
+    src: ["/success.wav"],
+  });
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -10,6 +16,13 @@ const Signup = () => {
     mobile: "",
     password: "",
   });
+
+  const [alert, setAlert] = useState([
+    false,
+    "Please change useState init value",
+  ]);
+
+  const router = useRouter();
 
   const handleChange = (e) => {
     setData({
@@ -20,8 +33,10 @@ const Signup = () => {
 
   const handleSubmit = async () => {
     try {
-      const response =await axios.post("/api/auth/signup", data);
-      console.info(response);
+      const response = await axios.post("/api/auth/signup", data);
+      setAlert([true, "Account Created Successfull"]);
+      success.play();
+      setTimeout(() => router.push("/Login"), 1500);
     } catch (error) {
       console.log(error);
     }
@@ -29,6 +44,11 @@ const Signup = () => {
 
   return (
     <main className="w-[100vw] min-h-screen flex justify-center items-center">
+      {alert[0] ? (
+        <div className="w-[300px] h-[50px] bottom-7 bg-lime-500 flex justify-center items-center right-5 shadow-xl fixed p-5">
+          <h1>{alert[1]}</h1>
+        </div>
+      ) : null}
       <div className="flex flex-col justify-center items-center w-[60vw] h-[70vh] portrait:w-[90vw] portrait:h-[70vh]  shadow-lg border-2 shadow-lime-500">
         <div className="flex portrait:flex-col my-4 justify-center items-center gap-4">
           <label className="w-[150px] portrait:hidden" htmlFor="name">
