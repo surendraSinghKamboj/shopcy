@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import axios from "axios";
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -17,8 +18,13 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = () => {
-    console.log(data);
+  const handleSubmit = async () => {
+    try {
+      const response =await axios.post("/api/auth/signup", data);
+      console.info(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
