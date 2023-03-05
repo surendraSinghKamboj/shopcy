@@ -10,12 +10,14 @@ const Order = () => {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        router.push("/Login");
+        router.push("/api/auth/verify");
       }
       try {
         const response = await axios.get("/api/signup", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: token },
         });
+        console.log(response);
+        response.status !== 200 ? router.push("/Login") : null;
       } catch (error) {
         console.error(error);
         router.push("/Login");
@@ -23,8 +25,6 @@ const Order = () => {
     };
     verify();
   }, []);
-
-  
 
   return <div>Order</div>;
 };

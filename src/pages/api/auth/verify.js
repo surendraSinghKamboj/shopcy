@@ -3,6 +3,28 @@ import jwt from "jsonwebtoken";
 import user from "../../../../models/user";
 import connectDb from "../../../../middleware/mongoose";
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
+const withAuth = (handler) => async (req, res) => {
+    try {
+        // Get token from request headers
+        const token = req.headers.authorization;
+
+        if (!token) {
+            return res.status(401).json({ message: "Unauthorized from try" });
+        }
+
+        // Verify token
+        const decoded = jwt.verify(token, JWT_SECRET);
+        req.user = decoded.id;
+
+        // Call the original handler with the authenticated request and response
+        await handler(req, res);
+    } catch (error) {
+        console.error(error);
+        res.status(401).json({ message: "Unauthorized from catch" });
+    }
+};
 
 const handler = async (req, res) => {
     if (req.method === "POST") {
@@ -15,15 +37,13 @@ const handler = async (req, res) => {
                 return res.status(401).json({ message: "Invalid username or password" });
             }
 
-            
             const passwordMatch = await bcrypt.compare(password, existingUser.password);
 
             if (!passwordMatch) {
                 return res.status(401).json({ message: "Invalid username or password" });
             }
 
-
-            const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET);
+            const token = jwt.sign({ id: existingUser._id }, JWT_SECRET);
             return res.status(200).json({ message: "Login successful", token });
         } catch (error) {
             console.error(error);
@@ -34,4 +54,4 @@ const handler = async (req, res) => {
     }
 };
 
-export default connectDb(handler);
+export default connectDb(withAuth(handler));
