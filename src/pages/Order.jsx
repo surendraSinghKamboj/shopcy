@@ -10,7 +10,7 @@ const Order = () => {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        router.push("/api/auth/verify");
+        router.push("/Login");
       }
       try {
         const response = await axios.get("/api/signup", {

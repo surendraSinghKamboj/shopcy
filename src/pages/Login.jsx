@@ -1,7 +1,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
   const [data, setData] = useState({
     userName: "",
     password: "",
@@ -16,14 +19,13 @@ const Login = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post("/api/auth/login", data);
-      console.info(response);
+      localStorage.setItem("token", response.data.token);
+      setTimeout(() => router.push("/Order"), 1000);
     } catch (error) {
       console.log(error);
     }
   };
 
-
-  
   return (
     <main className="w-[100vw] min-h-screen flex justify-center items-center">
       <div className="flex flex-col justify-center items-center w-[60vw] h-[70vh] portrait:w-[90vw] portrait:h-[70vh]  shadow-lg border-2 shadow-lime-500">
