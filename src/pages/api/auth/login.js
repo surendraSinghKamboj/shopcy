@@ -31,7 +31,6 @@ const handler = async (req, res) => {
     } else if (req.method === "GET") {
         console.log("verifying token")
         const token = req.headers.authorization;
-        console.log(token)
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             if (decoded.userName) {
