@@ -13,10 +13,9 @@ const Order = () => {
         router.push("/Login");
       }
       try {
-        const response = await axios.get("/api/signup", {
+        const response = await axios.get("/api/auth/login", {
           headers: { Authorization: token },
         });
-        console.log(response);
         response.status !== 200 ? router.push("/Login") : null;
       } catch (error) {
         console.error(error);
